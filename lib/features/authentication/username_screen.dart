@@ -74,7 +74,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 color: Colors.black54,
               ),
             ),
-            Gaps.v16,
+            Gaps.v28,
             TextField(
               controller: _usernameController,
               cursorColor: Theme.of(context).primaryColor,
