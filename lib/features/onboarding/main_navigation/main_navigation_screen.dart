@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -37,29 +38,42 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: screens[_selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        onDestinationSelected: _onTap,
-        selectedIndex: _selectedIndex,
-        destinations: const [
-          NavigationDestination(
-            icon: FaIcon(
-              FontAwesomeIcons.house,
-              color: Colors.purple,
-            ),
-            label: "Home",
-          ),
-          NavigationDestination(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-              color: Colors.purple,
-            ),
-            label: "Search",
-          )
-        ],
-      ),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(items: const [
+        BottomNavigationBarItem(
+          icon: FaIcon(CupertinoIcons.house),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: FaIcon(CupertinoIcons.search),
+          label: "Search",
+        ),
+      ]),
+      tabBuilder: (context, index) => screens[index],
     );
+    // return Scaffold(
+    //   body: screens[_selectedIndex],
+    //   bottomNavigationBar: NavigationBar(
+    //     labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+    //     onDestinationSelected: _onTap,
+    //     selectedIndex: _selectedIndex,
+    //     destinations: const [
+    //       NavigationDestination(
+    //         icon: FaIcon(
+    //           FontAwesomeIcons.house,
+    //           color: Colors.purple,
+    //         ),
+    //         label: "Home",
+    //       ),
+    //       NavigationDestination(
+    //         icon: FaIcon(
+    //           FontAwesomeIcons.magnifyingGlass,
+    //           color: Colors.purple,
+    //         ),
+    //         label: "Search",
+    //       )
+    //     ],
+    //   ),
+    // );
   }
 }
