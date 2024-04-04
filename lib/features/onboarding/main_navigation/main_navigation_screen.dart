@@ -39,28 +39,25 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _onTap,
-        type: BottomNavigationBarType.shifting,
-        // selectedItemColor: Theme.of(context).primaryColor,
-        currentIndex: _selectedIndex,
-        items: const [
-          BottomNavigationBarItem(
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        onDestinationSelected: _onTap,
+        selectedIndex: _selectedIndex,
+        destinations: const [
+          NavigationDestination(
             icon: FaIcon(
               FontAwesomeIcons.house,
+              color: Colors.purple,
             ),
             label: "Home",
-            tooltip: "What are you?",
-            backgroundColor: Colors.amber,
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: FaIcon(
               FontAwesomeIcons.magnifyingGlass,
+              color: Colors.purple,
             ),
             label: "Search",
-            tooltip: "What are you?",
-            backgroundColor: Colors.blue,
-          ),
+          )
         ],
       ),
     );
