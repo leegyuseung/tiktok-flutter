@@ -53,6 +53,7 @@ class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
       controller: _pageController,
       itemBuilder: (context, index) => VideoPost(
         onVideoFinished: _onVideoFinished,
+        index: index,
       ),
     );
   }
