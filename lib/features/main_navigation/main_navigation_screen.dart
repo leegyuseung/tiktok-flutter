@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/features/onboarding/main_navigation/widgets/nav_tab.dart';
-import 'package:tictok_clone/features/onboarding/main_navigation/widgets/post_video_button.dart';
+import 'package:tictok_clone/features/main_navigation/widgets/nav_tab.dart';
+import 'package:tictok_clone/features/main_navigation/widgets/post_video_button.dart';
 import 'package:tictok_clone/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
@@ -64,7 +64,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       ),
       bottomNavigationBar: BottomAppBar(
         height: 100,
-        color: Colors.black,
+        elevation: 0,
+        color: _selectedIndex == 0 ? Colors.black : Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(
             Sizes.size12,
@@ -78,6 +79,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: FontAwesomeIcons.house,
                 selectedIcon: FontAwesomeIcons.house,
                 onTap: () => _onTap(0),
+                selectedIndex: _selectedIndex,
               ),
               NavTab(
                 text: "Discover",
@@ -85,11 +87,14 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: FontAwesomeIcons.compass,
                 selectedIcon: FontAwesomeIcons.solidCompass,
                 onTap: () => _onTap(1),
+                selectedIndex: _selectedIndex,
               ),
               Gaps.h24,
               GestureDetector(
                 onTap: _onPostVideoButtonTap,
-                child: const PostVideoButton(),
+                child: PostVideoButton(
+                  inverted: _selectedIndex != 0,
+                ),
               ),
               Gaps.h24,
               NavTab(
@@ -98,6 +103,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: FontAwesomeIcons.message,
                 selectedIcon: FontAwesomeIcons.solidMessage,
                 onTap: () => _onTap(3),
+                selectedIndex: _selectedIndex,
               ),
               NavTab(
                 text: "Profile",
@@ -105,6 +111,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: FontAwesomeIcons.user,
                 selectedIcon: FontAwesomeIcons.solidUser,
                 onTap: () => _onTap(4),
+                selectedIndex: _selectedIndex,
               )
             ],
           ),
