@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tictok_clone/constants/sizes.dart';
-import 'package:tictok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tictok_clone/features/main_navigation/main_navigation_screen.dart';
 
 void main() async {
@@ -49,3 +48,30 @@ class TikTokApp extends StatelessWidget {
     );
   }
 }
+
+// class LayoutBuilderCodeLab extends StatelessWidget {
+//   const LayoutBuilderCodeLab({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final size = MediaQuery.of(context).size;
+//     return Scaffold(
+//       body: SizedBox(
+//         width: size.width / 2,
+//         child: LayoutBuilder(
+//           builder: (context, BoxConstraints constraints) => Container(
+//             width: constraints.maxWidth,
+//             height: constraints.maxHeight,
+//             color: Colors.teal,
+//             child: Center(
+//               child: Text(
+//                 "${size.width} / ${constraints.maxWidth}",
+//                 style: const TextStyle(color: Colors.white, fontSize: 98),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
