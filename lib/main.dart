@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tictok_clone/constants/sizes.dart';
+import 'package:tictok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tictok_clone/features/main_navigation/main_navigation_screen.dart';
 
 void main() async {
@@ -27,8 +28,11 @@ class TikTokApp extends StatelessWidget {
       title: 'TikTok Clone',
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
-        tabBarTheme: const TabBarTheme(
+        useMaterial3: true,
+        tabBarTheme: TabBarTheme(
           indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey.shade700,
         ),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Color(0xFFE9435A),
@@ -41,9 +45,22 @@ class TikTokApp extends StatelessWidget {
         textTheme: Typography.whiteMountainView,
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.grey.shade900,
+          surfaceTintColor: Colors.grey.shade900,
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontSize: Sizes.size16 + Sizes.size2,
+            fontWeight: FontWeight.w600,
+          ),
+          actionsIconTheme: IconThemeData(
+            color: Colors.grey.shade100,
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.grey.shade100,
+          ),
         ),
       ),
       theme: ThemeData(
+        useMaterial3: true,
         listTileTheme: const ListTileThemeData(
           iconColor: Colors.black,
         ),
@@ -71,11 +88,12 @@ class TikTokApp extends StatelessWidget {
             fontSize: Sizes.size16 + Sizes.size2,
             fontWeight: FontWeight.w600,
           ),
+          surfaceTintColor: Colors.white,
         ),
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
       ),
-      home: const MainNavigationScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
