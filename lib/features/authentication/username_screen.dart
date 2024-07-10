@@ -6,7 +6,7 @@ import 'package:tictok_clone/features/authentication/widgets/form_button.dart';
 
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({super.key});
-
+  static String routeName = '/username';
   @override
   State<UsernameScreen> createState() => _UsernameScreenState();
 }
