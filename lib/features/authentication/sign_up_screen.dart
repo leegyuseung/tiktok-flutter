@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/features/authentication/login_screen.dart';
-import 'package:tictok_clone/features/authentication/username_screen.dart';
 import 'package:tictok_clone/features/authentication/widgets/auth_button.dart';
 import 'package:tictok_clone/utils.dart';
 
@@ -17,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
   }
 
   void _onEmailTap(BuildContext context) {
-    context.go(UsernameScreen.routeName);
+    context.push("/users/lynn?show=likes");
   }
 
   @override
