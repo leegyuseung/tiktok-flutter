@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tictok_clone/constants/gaps.dart';
 import 'package:tictok_clone/constants/sizes.dart';
 import 'package:tictok_clone/features/authentication/login_form_screen.dart';
@@ -11,9 +12,7 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   void onSignupTap(BuildContext context) {
-    // push를하면 화면을 계속 쌓는다. 그래서 그냥 화면을 없애 Login으로 돌아가도록한다.
-    // pop은 Navigator의 가장 상단에 있는 스택을 제거한다.
-    Navigator.of(context).pop('Hello');
+    context.pop();
   }
 
   void _onEmailLoginTap(BuildContext context) {
